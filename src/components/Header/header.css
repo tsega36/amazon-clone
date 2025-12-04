@@ -1,0 +1,214 @@
+/* =============================== */
+/*  MAIN HEADER (Top Bar)        */
+/* =============================== */
+.header {
+  width: 100%;
+  height: 60px;
+  background-color: #036645;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.logo,
+.deliver-to,
+.search-box,
+.lang-box,
+.header-link,
+.cart,
+.lower-header ul li {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 5px 6px;
+  box-sizing: border-box;
+}
+/* Hover effect for header items */
+.logo:hover,
+.deliver-to:hover,
+.lang-box:hover,
+.header-link:hover,
+.cart:hover,
+.lower-header ul li:hover {
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+/* =============================== */
+/*  LEFT SIDE (Logo + Location)  */
+/* =============================== */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  width: 90px;
+  margin-top: 10px;
+}
+
+.deliver-to {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.location-icon {
+  margin-right: 5px;
+  color: white;
+}
+
+.small-text {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1;
+}
+
+.bold-text {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* =============================== */
+/*  SEARCH BAR                   */
+/* =============================== */
+.search-box {
+  flex: 1; /* Makes it expand */
+  display: flex;
+  height: 40px;
+  min-width: 250px;
+  max-width: 1000px;
+  border-radius: 2px;
+}
+.search-box select {
+  background: #e6e6e6;
+  border: none;
+  padding: 0 10px;
+  outline: none;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding-left: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-btn {
+  width: 50px;
+  background: #7f1153;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-btn:hover {
+  background-color: darkmagenta;
+}
+.search-box select:hover {
+  background-color: darkgrey;
+}
+/* =============================== */
+/* RIGHT SIDE (Language, Links) */
+/* =============================== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Language selector */
+.lang-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.lang-box img {
+  width: 20px;
+  height: 15px;
+}
+
+/* Header links */
+.header-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.header-link p,
+.header-link span {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* =============================== */
+/* CART ICON + BADGE            */
+/* =============================== */
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+/* Cart item count */
+.cart-count {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  color: orange;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* =============================== */
+/* LOWER HEADER (Menu Bar)      */
+/* =============================== */
+.lower-header {
+  width: 100%;
+  background-color: #085749;
+  color: white;
+}
+
+.lower-header ul {
+  display: flex;
+  gap: 20px;
+  padding: 10px 15px;
+  margin: 0;
+  list-style: none;
+}
+
+.lower-header ul li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lower-header ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+@media screen and(maz-width:576px) {
+  .header-container {
+    display: flex;
+    flex-direction: column !important;
+    height: auto;
+  }
+  .lower-header ul li:not(:first-child) {
+    display: none;
+  }
+  .lang-box {
+    display: none;
+  }
+}
