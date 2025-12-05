@@ -69,7 +69,9 @@ const Header = () => {
           <a href="/" className="cart">
             <BiCart size={32} />
             <span className="cart-count">0</span>
+            <p>Cart</p>
           </a>
+
         </div>
       </header>
 
