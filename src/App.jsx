@@ -1,8 +1,9 @@
-import { useState } from "react";
-import Header from "./components/Header/Header";
-import Carousel from "./components/Carousel/Carousel";
-import "./App.css";
-import Category from "./components/Category/Category";
+import { useState } from 'react';
+import './App.css';
+import Carousel from './components/Carousel/Carousel';
+import Category from './components/Category/Category';
+import Header from './components/Header/Header';
+import Product from './components/Product/Product';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +12,8 @@ function App() {
     <>
       <Header />
       <Carousel />
-      <Category/>
+      <Category />
+      <Product />
     </>
   );
 }
