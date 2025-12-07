@@ -2,8 +2,9 @@
 .category-wrapper {
   display: flex;
   justify-content: center;
+  align-content:center;
   gap: 20px;
-  padding: 0 20px;
+  padding: 0 auto;
   margin-top: -220px; /* ✨ pulls all cards upward over carousel */
   position: relative;
   z-index: 10; /* shows above carousel */

@@ -1,9 +1,12 @@
 .product-card {
   width: 240px;
   padding: 10px;
-  border: 1px solid transparent;
+  margin: 0 auto;
+  border: 1px solid transparent; /* stays same width */
   border-radius: 6px;
+  box-sizing: border-box;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative; /* needed if button overlays inside */
 }
 
 .product-card:hover {
@@ -33,31 +36,36 @@
   margin-top: 6px;
   font-size: 18px;
 }
+
+/* Always occupy space, but hidden with opacity */
 .button {
-  display: none;
-  background-color: #ffd814; /* primary */
-  border: none;
   width: 100%;
   padding: 10px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffd814; /* primary */
   font-size: 15px;
   font-weight: 600;
-  border-radius: 8px;
-  margin-top: 10px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0; /* hidden initially */
+}
+
+.product-card:hover .button {
+  opacity: 1; /* fade in on hover */
 }
 
 .button:hover {
   background-color: #f7ca00; /* hover shade */
 }
 
-/* Show button on card hover */
-.product-card:hover .button {
-  display: block;
-}
 .product-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  justify-content: center; /* center cards nicely */
+  width: 90%;
+  margin: 0 auto;
 }

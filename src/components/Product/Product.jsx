@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
-
+import './product.css';
 function Product() {
   const [products, setProducts] = useState([]);
 
@@ -17,7 +17,7 @@ function Product() {
 
     loadProducts();
   }, []);
-
+  console.log('PRODUCTS:', products);
   return (
     <div className="product-list">
       {products.map((item) => (

@@ -1,9 +1,9 @@
-import React from "react";
-import "./header.css";
-import { SlLocationPin } from "react-icons/sl";
-import { BsSearch } from "react-icons/bs";
-import { BiCart } from "react-icons/bi";
-import LowerHeader from "./LowerHeader";
+import { BiCart } from 'react-icons/bi';
+import { BsSearch } from 'react-icons/bs';
+import { SlLocationPin } from 'react-icons/sl';
+import { Link } from 'react-router-dom';
+import './header.css';
+import LowerHeader from './LowerHeader';
 
 const Header = () => {
   return (
@@ -12,12 +12,12 @@ const Header = () => {
         {/* LEFT AREA */}
         <div className="header-left">
           {/* Logo */}
-          <a href="/" className="logo">
+          <Link to="/" className="logo">
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
               alt="amazon logo"
             />
-          </a>
+          </Link>
 
           {/* Deliver To */}
           <div className="deliver-to">
@@ -52,26 +52,24 @@ const Header = () => {
             />
             <span>EN</span>
           </div>
-
           {/* Sign In */}
-          <a href="/" className="header-link">
+          <Link to="/auth" className="header-link">
             <p className="small-text">Hello, sign in</p>
             <span className="bold-text">Account & Lists</span>
-          </a>
+          </Link>
 
           {/* Orders */}
-          <a href="/" className="header-link">
+          <Link to="/orders" className="header-link">
             <p className="small-text">Returns</p>
             <span className="bold-text">& Orders</span>
-          </a>
+          </Link>
 
           {/* Cart */}
-          <a href="/" className="cart">
+          <Link to="/cart" className="cart">
             <BiCart size={32} />
             <span className="cart-count">0</span>
             <p>Cart</p>
-          </a>
-
+          </Link>
         </div>
       </header>
 
