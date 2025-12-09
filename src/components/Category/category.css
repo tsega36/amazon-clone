@@ -3,11 +3,11 @@
   display: flex;
   justify-content: center;
   align-content:center;
-  gap: 20px;
+  gap: 60px;
   padding: 0 auto;
-  margin-top: -220px; /* ✨ pulls all cards upward over carousel */
+  margin-top: -220px;
   position: relative;
-  z-index: 10; /* shows above carousel */
+  z-index: 10;
 }
 
 /* The single category card */
@@ -41,7 +41,7 @@
 .category-container img {
   width: 100%;
   height: auto;
-  object-fit: cover; /* ✔ Amazon uses cover */
+  object-fit: cover;
   border-radius: 5px;
   background: #f8f8f8;
   padding: 5px;

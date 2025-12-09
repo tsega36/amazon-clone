@@ -1,37 +1,38 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Loader from '../Loader/Loader';
 import ProductCard from './ProductCard';
 import './product.css';
+
 function Product() {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function loadProducts() {
-      try {
-        const res = await axios.get('https://fakestoreapi.com/products');
+    axios
+      .get('https://fakestoreapi.com/products')
+      .then((res) => {
         setProducts(res.data);
-      } catch (err) {
-        console.error('Error fetching products:', err);
-      }
-    }
-
-    loadProducts();
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
   }, []);
-  console.log('PRODUCTS:', products);
+
   return (
-    <div className="product-list">
-      {products.map((item) => (
-        <ProductCard
-          key={item.id}
-          title={item.title}
-          image={item.image}
-          rating={item.rating.rate}
-          ratingCount={item.rating.count}
-          price={item.price}
-          link={`/product/${item.id}`}
-        />
-      ))}
-    </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="product-list">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 

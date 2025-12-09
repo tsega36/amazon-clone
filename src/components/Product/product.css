@@ -1,12 +1,12 @@
 .product-card {
-  width: 240px;
+  width: 220px;
   padding: 10px;
-  margin: 0 auto;
-  border: 1px solid transparent; /* stays same width */
+  gap: 25px;
+  border: 1px solid transparent;
   border-radius: 6px;
   box-sizing: border-box;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative; /* needed if button overlays inside */
+  position: relative;
 }
 
 .product-card:hover {
@@ -53,11 +53,11 @@
 }
 
 .product-card:hover .button {
-  opacity: 1; /* fade in on hover */
+  opacity: 1;
 }
 
 .button:hover {
-  background-color: #f7ca00; /* hover shade */
+  background-color: #f7ca00;
 }
 
 .product-list {
@@ -65,7 +65,7 @@
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
-  justify-content: center; /* center cards nicely */
+  justify-content: center;
   width: 90%;
   margin: 0 auto;
 }

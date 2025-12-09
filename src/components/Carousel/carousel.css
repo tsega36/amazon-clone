@@ -1,6 +1,6 @@
 .carousel-container {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -19,7 +19,7 @@
 
 /* Gradient overlay (Amazon-style fade bottom) */
 .image-wrapper::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;

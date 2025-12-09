@@ -1,14 +1,13 @@
-import React from "react";
-import "./category.css";
-
+import { Link } from 'react-router-dom';
+import './category.css';
 function CategoryCard({ data }) {
   return (
     <div className="category-container">
-      <a href="#">
+      <Link to={`/category/${data.name}`}>
         <h2>{data.title}</h2>
         <img src={data.image} alt={data.title} />
         <p>Shop Now</p>
-      </a>
+      </Link>
     </div>
   );
 }
