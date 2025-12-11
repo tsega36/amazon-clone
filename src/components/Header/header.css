@@ -13,7 +13,11 @@
   overflow: hidden;
   flex-wrap: nowrap;
 }
-
+.fixed {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 .logo,
 .deliver-to,
 .search-box,
@@ -166,7 +170,7 @@
 
 .cart-count {
   position: absolute;
-  top: 8px;
+  top: -2px;
   left: 20px;
   color: orange;
   font-size: 18px;

@@ -8,9 +8,11 @@ import './header.css';
 import LowerHeader from './LowerHeader';
 
 const Header = () => {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
+  const { basket } = state;
+
   return (
-    <>
+    <div className="fixed">
       <header className="header">
         {/* LEFT AREA */}
         <div className="header-left">
@@ -77,7 +79,7 @@ const Header = () => {
       </header>
 
       <LowerHeader />
-    </>
+    </div>
   );
 };
 

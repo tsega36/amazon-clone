@@ -7,10 +7,10 @@ import './product.css';
 
 function ProductCard({ product, flex, renderDesc }) {
   const { id, title, image, price, rating, description } = product;
-  const [state, dispatch] = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const addToCart = () => {
     dispatch({
-      Type: Type.ADD_TO_BASKET,
+      type: Type.ADD_TO_BASKET,
       item: {
         id,
         title,
