@@ -1,6 +1,6 @@
-/* =============================== */
-/*  MAIN HEADER (Top Bar)        */
-/* =============================== */
+/* ======================================== */
+/* MAIN HEADER (Top Bar) */
+/* ======================================== */
 .header {
   width: 100%;
   height: 60px;
@@ -10,10 +10,10 @@
   align-items: center;
   padding: 0 10px;
   gap: 20px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-
+  overflow: hidden;
+  flex-wrap: nowrap;
 }
+
 .logo,
 .deliver-to,
 .search-box,
@@ -26,7 +26,7 @@
   padding: 5px 6px;
   box-sizing: border-box;
 }
-/* Hover effect for header items */
+
 .logo:hover,
 .deliver-to:hover,
 .lang-box:hover,
@@ -34,12 +34,11 @@
 .cart:hover,
 .lower-header ul li:hover {
   border: 1px solid white;
-  border-radius: 3px;
 }
 
-/* =============================== */
-/*  LEFT SIDE (Logo + Location)  */
-/* =============================== */
+/* ======================================== */
+/* LEFT SIDE */
+/* ======================================== */
 .header-left {
   display: flex;
   align-items: center;
@@ -74,16 +73,17 @@
   line-height: 1;
 }
 
-/* =============================== */
-/*  SEARCH BAR                   */
-/* =============================== */
+/* ======================================== */
+/* SEARCH BAR */
+/* ======================================== */
 .search-box {
-  flex: 1; /* Makes it expand */
+  flex: 1;
   display: flex;
   height: 50px;
   min-width: 250px;
   max-width: 1000px;
 }
+
 .search-box select {
   background: #e6e6e6;
   border: none;
@@ -110,22 +110,24 @@
   align-items: center;
   border-radius: 0 5px 5px 0;
 }
+
 .search-btn:hover {
   background-color: darkmagenta;
 }
+
 .search-box select:hover {
   background-color: darkgrey;
 }
-/* =============================== */
-/* RIGHT SIDE (Language, Links) */
-/* =============================== */
+
+/* ======================================== */
+/* RIGHT SIDE */
+/* ======================================== */
 .header-right {
   display: flex;
   align-items: center;
   gap: 25px;
 }
 
-/* Language selector */
 .lang-box {
   display: flex;
   align-items: center;
@@ -138,7 +140,6 @@
   height: 15px;
 }
 
-/* Header links */
 .header-link {
   text-decoration: none;
   color: white;
@@ -151,9 +152,9 @@
   line-height: 1.2;
 }
 
-/* =============================== */
-/* CART ICON + BADGE            */
-/* =============================== */
+/* ======================================== */
+/* CART */
+/* ======================================== */
 .cart {
   display: flex;
   align-items: center;
@@ -163,7 +164,6 @@
   position: relative;
 }
 
-/* Cart item count */
 .cart-count {
   position: absolute;
   top: 8px;
@@ -173,9 +173,9 @@
   font-weight: bold;
 }
 
-/* =============================== */
-/* LOWER HEADER (Menu Bar)      */
-/* =============================== */
+/* ======================================== */
+/* LOWER HEADER */
+/* ======================================== */
 .lower-header {
   width: 100%;
   background-color: #085749;
@@ -201,16 +201,98 @@
   color: white;
   font-size: 15px;
 }
-@media screen and(maz-width:576px) {
-  .header-container {
-    display: flex;
-    flex-direction: column !important;
-    height: auto;
+
+/* ======================================== */
+/* RESPONSIVE BREAKPOINTS */
+/* ======================================== */
+
+/* Large screens (1200px and below) */
+@media (max-width: 1200px) {
+  .header {
+    gap: 10px;
   }
+
+  .header-right {
+    gap: 15px;
+  }
+
+  .search-box {
+    max-width: 700px;
+  }
+}
+
+/* Medium screens (992px and below) */
+@media (max-width: 992px) {
+  .deliver-to {
+    display: none;
+  }
+
+  .lang-box {
+    display: none;
+  }
+
+  .search-box {
+    max-width: 500px;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .header-left {
+    gap: 10px;
+  }
+
+  .search-box {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
   .lower-header ul li:not(:first-child) {
     display: none;
   }
-  .lang-box {
-    display: none;
+}
+
+/* Mobile phones (576px and below) */
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    height: auto;
+  }
+
+  .logo img {
+    width: 70px;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-box {
+    width: 100%;
+    height: 40px;
+  }
+
+  .search-box input {
+    font-size: 14px;
+  }
+
+  .lower-header ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 }

@@ -11,8 +11,9 @@
 
 .product-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   border-color: #ddd;
+  box-sizing: border-box;
 }
 
 .product-img {
@@ -68,4 +69,30 @@
   justify-content: center;
   width: 90%;
   margin: 0 auto;
+}
+.product_flexed {
+  box-shadow: none;
+  height: auto;
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+.product_flexed h3 {
+  padding: 20px 8px;
+}
+.product_flexed .button {
+  display: block;
+  position: static;
+  width: 150px;
+  margin-right: 48px;
+}
+.product_flexed img {
+  width: 300px !important;
+  height: auto;
+}
+@media screen and (max-width: 768px) {
+  .product_flexed {
+    display: flex;
+    flex-direction: column;
+  }
 }

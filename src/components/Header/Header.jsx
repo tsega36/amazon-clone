@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import { BiCart } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../DataProvider/DataProvider';
 import './header.css';
 import LowerHeader from './LowerHeader';
 
 const Header = () => {
+  const [{ basket }, dispatch] = useContext(DataContext);
   return (
     <>
       <header className="header">
@@ -67,7 +70,7 @@ const Header = () => {
           {/* Cart */}
           <Link to="/cart" className="cart">
             <BiCart size={32} />
-            <span className="cart-count">0</span>
+            <span className="cart-count">{basket.length}</span>
             <p>Cart</p>
           </Link>
         </div>
