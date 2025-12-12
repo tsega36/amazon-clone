@@ -25,6 +25,7 @@
   height: 80%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   border: 1px solid rgb(193, 193, 193);
   background-color: rgb(242, 241, 241);
@@ -32,7 +33,7 @@
 }
 .subtotal a {
   text-align: center;
-  width: 100px;
+  width: 100%;
   border: none;
   background-color: var(--primary-color);
   border-radius: 5px;
@@ -40,18 +41,39 @@
   text-decoration: none;
   color: black;
 }
-.subtotal a:hover {
-  background: var(--primary-shade);
-}
 
+.subtotal a:hover {
+  background-color: var(--primary-shade);
+}
 .subtotal > div,
 .subtotal span {
   display: flex;
   gap: 20px;
 }
-
+.cart-product {
+  display: flex;
+  gap: 10px;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.btn {
+  padding: 5px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+}
+.btn:hover svg{
+  background-color: var(--primary-shade);
+}
 @media (max-width: 968px) {
   .container {
     flex-direction: column;
+    order: 1;
   }
 }

@@ -10,7 +10,9 @@ import LowerHeader from './LowerHeader';
 const Header = () => {
   const { state, dispatch } = useContext(DataContext);
   const { basket } = state;
-
+  const totalItems = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
   return (
     <div className="fixed">
       <header className="header">
@@ -72,7 +74,7 @@ const Header = () => {
           {/* Cart */}
           <Link to="/cart" className="cart">
             <BiCart size={32} />
-            <span className="cart-count">{basket.length}</span>
+            <span className="cart-count">{totalItems}</span>
             <p>Cart</p>
           </Link>
         </div>
