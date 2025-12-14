@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Loader from '../Loader/Loader';
 import ProductCard from './ProductCard';
-import './product.css';
+import styles from './ProductCard.module.css';
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -21,18 +21,14 @@ function Product() {
       });
   }, []);
 
-  return (
-    <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="product-list">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} renderAdd={true} />
-          ))}
-        </div>
-      )}
-    </>
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <div className={styles.list}>
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} renderAdd={true} />
+      ))}
+    </div>
   );
 }
 

@@ -4,77 +4,76 @@ import { BsSearch } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
-import './header.css';
+import styles from './Header.module.css';
 import LowerHeader from './LowerHeader';
 
 const Header = () => {
-  const { state, dispatch } = useContext(DataContext);
+  const { state } = useContext(DataContext);
   const { basket } = state;
-  const totalItems = basket?.reduce((amount, item) => {
-    return item.amount + amount;
-  }, 0);
+
+  const totalItems = basket.reduce((sum, item) => sum + item.amount, 0);
+
   return (
-    <div className="fixed">
-      <header className="header">
-        {/* LEFT AREA */}
-        <div className="header-left">
-          {/* Logo */}
-          <Link to="/" className="logo">
+    <div className={styles.fixed}>
+      <header className={styles.header}>
+        {/* LEFT */}
+        <div className={styles.headerLeft}>
+          <Link to="/" className={`${styles.logo} ${styles.hoverable}`}>
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-              alt="amazon logo"
+              alt="Amazon"
             />
           </Link>
 
-          {/* Deliver To */}
-          <div className="deliver-to">
-            <SlLocationPin className="location-icon" size={18} />
+          <div className={`${styles.deliverTo} ${styles.hoverable}`}>
+            <SlLocationPin size={18} />
             <div>
-              <p className="small-text">Deliver to</p>
-              <span className="bold-text">Ethiopia</span>
+              <p className={styles.smallText}>Deliver to</p>
+              <span className={styles.boldText}>Ethiopia</span>
             </div>
           </div>
         </div>
 
-        {/* SEARCH BAR */}
-        <div className="search-box">
+        {/* SEARCH */}
+        <div className={styles.searchBox}>
           <select>
-            <option value="">All</option>
+            <option>All</option>
           </select>
-
-          <input type="text" placeholder="Search product" />
-
-          <button className="search-btn">
+          <input placeholder="Search product" />
+          <button className={styles.searchBtn}>
             <BsSearch size={20} />
           </button>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="header-right">
-          {/* Language */}
-          <div className="lang-box">
+        {/* RIGHT */}
+        <div className={styles.headerRight}>
+          <div className={`${styles.langBox} ${styles.hoverable}`}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg"
               alt="flag"
             />
             <span>EN</span>
           </div>
-          {/* Sign In */}
-          <Link to="/auth" className="header-link">
-            <p className="small-text">Hello, sign in</p>
-            <span className="bold-text">Account & Lists</span>
+
+          <Link
+            to="/auth"
+            className={`${styles.headerLink} ${styles.hoverable}`}
+          >
+            <p className={styles.smallText}>Hello, sign in</p>
+            <span className={styles.boldText}>Account & Lists</span>
           </Link>
 
-          {/* Orders */}
-          <Link to="/orders" className="header-link">
-            <p className="small-text">Returns</p>
-            <span className="bold-text">& Orders</span>
+          <Link
+            to="/orders"
+            className={`${styles.headerLink} ${styles.hoverable}`}
+          >
+            <p className={styles.smallText}>Returns</p>
+            <span className={styles.boldText}>& Orders</span>
           </Link>
 
-          {/* Cart */}
-          <Link to="/cart" className="cart">
+          <Link to="/cart" className={`${styles.cart} ${styles.hoverable}`}>
             <BiCart size={32} />
-            <span className="cart-count">{totalItems}</span>
+            <span className={styles.cartCount}>{totalItems}</span>
             <p>Cart</p>
           </Link>
         </div>

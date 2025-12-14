@@ -4,43 +4,47 @@ import { Link } from 'react-router-dom';
 import { Type } from '../../utility/action.type';
 import CurrencyFormat from '../CurrencyFormat/CurrencyFormat';
 import { DataContext } from '../DataProvider/DataProvider';
-import './product.css';
+import styles from './ProductCard.module.css';
 
 function ProductCard({ product, flex, renderDesc, renderAdd }) {
   const { id, title, image, price, rating, description } = product;
-  const { state, dispatch } = useContext(DataContext);
+  const { dispatch } = useContext(DataContext);
+
   const addToCart = () => {
     dispatch({
       type: Type.ADD_TO_BASKET,
-      item: {
-        id,
-        title,
-        image,
-        price,
-        rating,
-        description,
-      },
+      item: { id, title, image, price, rating, description },
     });
   };
+
   return (
-    <div className={`product-card ${flex ? 'product_flexed' : ''}`}>
+    <div className={`${styles.card} ${flex ? styles.flexed : ''}`}>
       <Link to={`/products/${id}`}>
-        <img src={image} alt={title} className="product-img" />
+        <img
+          src={image}
+          alt={title}
+          className={flex ? styles.flexedImg : styles.productImg}
+        />
       </Link>
 
-      <div className="product-info">
-        <h3 className="product-title">{title}</h3>
+      <div className={styles.info}>
+        <h3 className={flex ? styles.flexedTitle : styles.title}>{title}</h3>
         {renderDesc && <div style={{ maxWidth: '750px' }}>{description}</div>}
-        <div className="product-rating">
+
+        <div className={styles.rating}>
           <Rating value={rating?.rate || 0} precision={0.1} readOnly />
-          <span className="rating-count">({rating?.count})</span>
+          <span className={styles.ratingCount}>({rating?.count})</span>
         </div>
 
-        <div className="product-price">
+        <div className={styles.price}>
           <CurrencyFormat amount={price} />
         </div>
+
         {renderAdd && (
-          <button className="button" onClick={addToCart}>
+          <button
+            className={flex ? styles.flexedButton : styles.button}
+            onClick={addToCart}
+          >
             Add to cart
           </button>
         )}

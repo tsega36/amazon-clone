@@ -1,11 +1,10 @@
-import React from "react";
-import { categories } from "./categoryData";
-import CategoryCard from "./CategoryCard";
-import "./category.css";
+import styles from './Category.module.css';
+import CategoryCard from './CategoryCard';
+import { categories } from './categoryData';
 
 const Category = () => {
   return (
-    <div className="category-wrapper">
+    <div className={styles.categoryWrapper}>
       {categories.map((item) => (
         <CategoryCard key={item.name} data={item} />
       ))}

@@ -5,7 +5,7 @@ import { productUrl } from '../../api/endpoints';
 import Layout from '../../components/Layout/Layout';
 import Loader from '../../components/Loader/Loader';
 import ProductCard from '../../components/Product/ProductCard';
-import './Result.css';
+import styles from './Result.module.css';
 
 function Result() {
   const [results, setResults] = useState([]);
@@ -27,7 +27,7 @@ function Result() {
 
   return (
     <Layout>
-      <div className="result-page">
+      <div className={styles.resultPage}>
         <h1>Results</h1>
         <p>Category / {categoryName}</p>
         <hr />
@@ -35,10 +35,14 @@ function Result() {
         {isLoading ? (
           <Loader />
         ) : (
-          <div className="products-container">
+          <div className={styles.productsContainer}>
             {results.map((product) => (
-              <ProductCard key={product.id} product={product}
-              renderAdd={true} renderDesc={false} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                renderAdd={true}
+                renderDesc={false}
+              />
             ))}
           </div>
         )}

@@ -4,19 +4,22 @@
   gap: 20px;
   margin-top: 20px;
 }
+
 .container img {
   width: 100px !important;
 }
-.cart-container {
+
+.cartContainer {
   padding: 20px;
 }
-.cart-container h2,
-.cart-container h3 {
+
+.cartContainer h2,
+.cartContainer h3 {
   padding: 10px;
 }
 
-.cart-container hr {
-  margin: 10px;
+.cartContainer hr {
+  margin: 10px 0;
 }
 
 .subtotal {
@@ -31,7 +34,14 @@
   background-color: rgb(242, 241, 241);
   border-radius: 5px;
 }
-.subtotal a {
+
+.subtotalContent,
+.subtotal span {
+  display: flex;
+  gap: 20px;
+}
+
+.checkoutBtn {
   text-align: center;
   width: 100%;
   border: none;
@@ -42,35 +52,38 @@
   color: black;
 }
 
-.subtotal a:hover {
+.checkoutBtn:hover {
   background-color: var(--primary-shade);
 }
-.subtotal > div,
-.subtotal span {
-  display: flex;
-  gap: 20px;
-}
-.cart-product {
+
+.cartProduct {
   display: flex;
   gap: 10px;
 }
-.btn-container {
+
+.btnContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
+
 .btn {
   padding: 5px 16px;
   font-weight: bold;
   cursor: pointer;
   background-color: #fff;
-  border: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
-.btn:hover svg{
+
+.btn:hover {
   background-color: var(--primary-shade);
+  transform: translateY(-2px);
 }
+
 @media (max-width: 968px) {
   .container {
     flex-direction: column;

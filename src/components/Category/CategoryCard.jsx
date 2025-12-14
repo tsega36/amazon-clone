@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom';
-import './category.css';
+import styles from './Category.module.css';
+
 function CategoryCard({ data }) {
   return (
-    <div className="category-container">
-      <Link to={`/category/${data.name}`}>
-        <h2>{data.title}</h2>
-        <img src={data.image} alt={data.title} />
-        <p>Shop Now</p>
+    <div className={styles.categoryContainer}>
+      <Link to={`/category/${data.name}`} className={styles.categoryLink}>
+        <h2 className={styles.categoryTitle}>{data.title}</h2>
+        <img
+          src={data.image}
+          alt={data.title}
+          className={styles.categoryImage}
+        />
+        <p className={styles.shopNow}>Shop Now</p>
       </Link>
     </div>
   );
