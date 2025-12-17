@@ -3,13 +3,14 @@ import { BiCart } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
+import { auth } from '../../Utility/firebase';
 import { DataContext } from '../DataProvider/DataProvider';
 import styles from './Header.module.css';
 import LowerHeader from './LowerHeader';
 
 const Header = () => {
   const { state } = useContext(DataContext);
-  const { basket } = state;
+  const { user, basket } = state;
 
   const totalItems = basket.reduce((sum, item) => sum + item.amount, 0);
 
@@ -56,11 +57,27 @@ const Header = () => {
           </div>
 
           <Link
-            to="/auth"
+            to={!user && '/auth'}
             className={`${styles.headerLink} ${styles.hoverable}`}
           >
-            <p className={styles.smallText}>Hello, sign in</p>
-            <span className={styles.boldText}>Account & Lists</span>
+            <div>
+              {user ? (
+                <>
+                  <p>Hello,{user?.email?.split('@')[0]}</p>
+                  <span
+                    className={styles.boldText}
+                    onClick={() => auth.signOut()}
+                  >
+                    Sign Out
+                  </span>
+                </>
+              ) : (
+                <>
+                  <p className={styles.smallText}>Hello, sign in</p>
+                  <span className={styles.boldText}>Account & Lists</span>
+                </>
+              )}
+            </div>
           </Link>
 
           <Link

@@ -9,7 +9,7 @@ function Landing() {
       <Category />
       <Product />
     </Layout>
-  )
+  );
 }
 
 export default Landing;
