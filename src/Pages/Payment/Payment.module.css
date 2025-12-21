@@ -1,0 +1,124 @@
+/* Header */
+.payment_header {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Main payment section */
+.payment {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Flex container for sections: address, products, payment */
+.flex {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.flex h3 {
+  min-width: 300px;
+  margin: 0;
+}
+
+.flex img {
+  width: 80px;
+  height: auto;
+}
+
+.flex div {
+  height: auto;
+}
+
+/* Product review section */
+.payment_products {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Payment card container */
+.payment_card_container {
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Card form */
+.payment_details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Total price section */
+.payment_price {
+  padding: 20px 0;
+}
+
+.payment_price div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  gap: 10px;
+}
+
+.payment_price p {
+  margin: 0;
+}
+
+/* Pay button */
+.payment_details button {
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.payment_details button:hover {
+  background-color: var(--primary-shade);
+}
+
+/* Stripe CardElement styling */
+.StripeElement {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/* Error message */
+small {
+  color: red;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .flex h3 {
+    min-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .payment_card_container {
+    max-width: 100%;
+  }
+}

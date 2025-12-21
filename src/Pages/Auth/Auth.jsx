@@ -105,7 +105,6 @@ function Auth() {
             className={styles.authSigninBtn}
           >
             {loading.signIn ? <Loader /> : 'Sign In'}
-            Sign In
           </button>
         </form>
 
@@ -125,7 +124,9 @@ function Auth() {
         >
           {loading.signUp ? <Loader /> : 'Create your Amazon Account'}
         </button>
-        {error && <small>{error}</small>}
+        {error && (
+          <small style={{ paddingTop: '5px', color: 'red' }}>{error}</small>
+        )}
       </div>
     </section>
   );

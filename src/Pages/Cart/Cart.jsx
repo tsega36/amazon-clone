@@ -5,28 +5,26 @@ import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import Layout from '../../components/Layout/Layout';
 import ProductCard from '../../components/Product/ProductCard';
-import { Type } from '../../utility/action.type';
+import { Type } from '../../utility/action.type.js';
 import styles from './Cart.module.css';
 
 function Cart() {
   const { state, dispatch } = useContext(DataContext);
   const { basket, user } = state;
-  const totalItems = basket.reduce((sum, item) => sum + item.amount, 0);
-  const total = basket.reduce((amount, item) => {
-    return item.price * item.amount + amount;
-  }, 0);
+
+  const total = basket.reduce(
+    (amount, item) => item.price * item.amount + amount,
+    0,
+  );
+
   const increment = (item) => {
-    dispatch({
-      type: Type.ADD_TO_BASKET,
-      item,
-    });
+    dispatch({ type: Type.ADD_TO_BASKET, item });
   };
+
   const decrement = (id) => {
-    dispatch({
-      type: Type.REMOVE_FROM_BASKET,
-      id,
-    });
+    dispatch({ type: Type.REMOVE_FROM_BASKET, id });
   };
+
   return (
     <Layout>
       <section className={styles.container}>
@@ -69,7 +67,7 @@ function Cart() {
         {basket?.length !== 0 && (
           <div className={styles.subtotal}>
             <div className={styles.subtotalContent}>
-              <p>Subtotal ({totalItems} items)</p>
+              <p>Subtotal ({basket.length} items)</p>
               <CurrencyFormat amount={total} />
             </div>
 
@@ -78,7 +76,7 @@ function Cart() {
               <small>This order contains a gift</small>
             </span>
 
-            <Link to="/payments" className={styles.checkoutBtn}>
+            <Link to="/payment" className={styles.checkoutBtn}>
               Proceed to Checkout
             </Link>
           </div>

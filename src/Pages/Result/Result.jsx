@@ -12,6 +12,7 @@ function Result() {
   const { categoryName } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
+  const backendCategory = decodeURIComponent(categoryName);
   useEffect(() => {
     axios
       .get(`${productUrl}/products/category/${categoryName}`)
