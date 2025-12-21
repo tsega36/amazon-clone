@@ -3,36 +3,34 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 30px;
+  text-align: center;
+  padding-top: 10px;
+  background-color: rgb(234, 237, 237);
 }
 
 /* Main payment section */
 .payment {
   padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
 }
 
 /* Flex container for sections: address, products, payment */
 .flex {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  padding: 30px;
 }
 
 .flex h3 {
   min-width: 300px;
-  margin: 0;
 }
 
 .flex img {
-  width: 80px;
+  width: 80px !important;
   height: auto;
 }
 
 .flex div {
-  height: auto;
+  height: auto !important;
 }
 
 /* Product review section */

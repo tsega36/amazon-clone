@@ -8,7 +8,8 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat';
 
 function Payment() {
-  const [{ basket, user }] = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
+  const { basket, user } = state;
 
   const total =
     basket?.reduce((amount, item) => item.price * item.amount + amount, 0) || 0;
@@ -31,7 +32,10 @@ function Payment() {
         {/* address */}
         <div className={styles.flex}>
           <h3>Delivery address</h3>
-          <div>{user?.email || 'No email available'}</div>
+          <div>
+            <div>{user?.email || 'No email available'}</div>
+            <div>Addis Ababa,Ethiopia</div>
+          </div>
         </div>
         <hr />
 
