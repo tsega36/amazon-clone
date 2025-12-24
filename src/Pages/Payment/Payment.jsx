@@ -42,7 +42,7 @@ function Payment() {
       const response = await axiosInstance.post(
         `/payment/create?total=${total}`,
       );
-      const clientSecret = response.data.clientSecret;
+      const clientSecret = response.data?.clientSecret;
 
       // 2. Confirm card payment
       const cardElement = elements.getElement(CardElement);
@@ -52,6 +52,11 @@ function Payment() {
           payment_method: { card: cardElement },
         },
       );
+      // const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      //   payment_method: {
+      //     card: elements.getElement(cardElement),
+      //   },
+      // });
 
       if (error) {
         setCardError(error.message || 'Payment failed.');
@@ -70,6 +75,16 @@ function Payment() {
           amount: paymentIntent.amount,
           created: serverTimestamp(),
         });
+        // const db
+        // .collection("users")
+        // .doc("user.uid")
+        // .collection("orders")
+        // .doc("paymentIntent.id")
+        // .set({
+        //   basket:basket,
+        //   amount:paymentIntent.amount,
+        //   created:paymentIntent.created,
+        // })
         // Redirect to Orders page
         navigate('/orders', { state: { msg: ' You have placed order ' } });
       }

@@ -4,7 +4,7 @@ import {
 } from 'firebase/auth';
 
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import Loader from '../../components/Loader/Loader';
 import { Type } from '../../Utility/action.type';
@@ -22,6 +22,8 @@ function Auth() {
   const { state, dispatch } = useContext(DataContext);
   const { user } = state;
   const navigate = useNavigate();
+  const navStateData = useLocation();
+
   const authHandler = async (e) => {
     e.preventDefault();
     setError('');
@@ -36,7 +38,7 @@ function Auth() {
             user: userInfo.user,
           });
           setLoading({ ...loading, signIn: false });
-          navigate('/');
+          navigate(navStateData?.state?.redirect || '/');
         })
         .catch((err) => {
           setError(err.message); // Show error message if login fails
@@ -52,7 +54,7 @@ function Auth() {
             user: userInfo.user,
           });
           setLoading({ ...loading, signUp: false });
-          navigate('/');
+          navigate(navStateData?.state?.redirect || '/');
         })
         .catch((err) => {
           setError(err.message); // Show error message if signup fails
@@ -75,8 +77,18 @@ function Auth() {
       {/* Sign In Card */}
       <div className={styles.authContainer}>
         <h1>Sign in</h1>
-
-        {/* Sign In Form */}
+        navStateData?.state?.msg && (
+        <small
+          style={{
+            padding: '5px',
+            textAlign: 'center',
+            color: 'red',
+            fontWeight: 'bold',
+          }}
+        >
+          {navStateData?.state?.msg}
+        </small>
+        ){/* Sign In Form */}
         <form>
           <div className={styles.authField}>
             <label htmlFor="email">Email</label>
@@ -107,14 +119,12 @@ function Auth() {
             {loading.signIn ? <Loader /> : 'Sign In'}
           </button>
         </form>
-
         {/* Terms */}
         <p className={styles.authTerms}>
           By continuing, you agree to AMAZON FAKE CLONE Conditions of Use and
           Sale. Please see our Privacy Notice, Cookies Notice, and
           Interest-Based Ads Notice.
         </p>
-
         {/* Create Account */}
         <button
           type="button"
