@@ -1,4 +1,4 @@
-import { Type } from './action.type';
+import { Type } from './action.type.js';
 
 export const initialState = {
   basket: [],
@@ -50,6 +50,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    case Type.EMPTY_BASKET:
+      return {
+        ...state,
+        basket: [],
       };
     default:
       return state;

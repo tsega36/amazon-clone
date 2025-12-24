@@ -77,18 +77,19 @@ function Auth() {
       {/* Sign In Card */}
       <div className={styles.authContainer}>
         <h1>Sign in</h1>
-        navStateData?.state?.msg && (
-        <small
-          style={{
-            padding: '5px',
-            textAlign: 'center',
-            color: 'red',
-            fontWeight: 'bold',
-          }}
-        >
-          {navStateData?.state?.msg}
-        </small>
-        ){/* Sign In Form */}
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: '5px',
+              textAlign: 'center',
+              color: 'red',
+              fontWeight: 'bold',
+            }}
+          >
+            {navStateData.state.msg}
+          </small>
+        )}
+        {/* Sign In Form */}
         <form>
           <div className={styles.authField}>
             <label htmlFor="email">Email</label>

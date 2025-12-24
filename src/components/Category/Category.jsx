@@ -1,5 +1,5 @@
 import styles from './Category.module.css';
-import CategoryCard from './CategoryCard';
+import CategoryCard from './CategoryCard.jsx';
 import { categories } from './categoryData';
 
 const Category = () => {
