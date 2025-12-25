@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './Category.module.css';
 
 function CategoryCard({ data }) {
-  const category = typeof data === 'string' ? data : data.name; 
+  const category = typeof data === 'string' ? data : data.name;
 
   return (
     <div className={styles.categoryContainer}>
@@ -11,6 +11,7 @@ function CategoryCard({ data }) {
         className={styles.categoryLink}
       >
         <h2 className={styles.categoryTitle}>{category}</h2>
+
         {data.image && (
           <div className={styles.categoryImageWrapper}>
             <img
@@ -20,6 +21,9 @@ function CategoryCard({ data }) {
             />
           </div>
         )}
+
+        {/* Add Shop Now text */}
+        <div className={styles.shopNow}>Shop Now</div>
       </Link>
     </div>
   );
