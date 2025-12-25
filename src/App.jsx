@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { DataContext } from './components/DataProvider/DataProvider';
 import Routing from './Routing';
-import { Type } from './utility/action.type';
+import { Type } from './Utility/action.type';
 import { auth } from './Utility/firebase';
 function App() {
   const { state, dispatch } = useContext(DataContext);
