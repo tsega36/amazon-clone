@@ -6,7 +6,7 @@ import './index.css';
 import { initialState, reducer } from './utility/reducer';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter basename="/amazon-clone">
+  <BrowserRouter>
     <DataProvider reducer={reducer} initialState={initialState}>
       <App />
     </DataProvider>
