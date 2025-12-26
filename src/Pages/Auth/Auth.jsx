@@ -7,8 +7,8 @@ import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import Loader from '../../components/Loader/Loader';
-import { Type } from '../../Utility/action.type';
-import { auth } from '../../Utility/firebase';
+import { Type } from '../../utility/action.type';
+import { auth } from '../../utility/firebase';
 import styles from './Auth.module.css';
 
 function Auth() {

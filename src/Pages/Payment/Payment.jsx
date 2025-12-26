@@ -8,7 +8,7 @@ import { DataContext } from '../../components/DataProvider/DataProvider';
 import Layout from '../../components/Layout/Layout';
 import Loader from '../../components/Loader/Loader';
 import ProductCard from '../../components/Product/ProductCard';
-import { db } from '../../Utility/firebase';
+import { db } from '../../utility/firebase';
 import styles from './Payment.module.css';
 
 function Payment() {

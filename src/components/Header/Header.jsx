@@ -3,7 +3,7 @@ import { BiCart } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
-import { auth } from '../../Utility/firebase';
+import { auth } from '../../utility/firebase';
 import { DataContext } from '../DataProvider/DataProvider';
 import styles from './Header.module.css';
 import LowerHeader from './LowerHeader';

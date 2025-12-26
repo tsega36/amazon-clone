@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import Layout from '../../components/Layout/Layout';
 import ProductCard from '../../components/Product/ProductCard';
-import { db } from '../../Utility/firebase';
+import { db } from '../../utility/firebase';
 import styles from './Orders.module.css';
 
 function Orders() {

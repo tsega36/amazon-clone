@@ -5,7 +5,7 @@ import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import Layout from '../../components/Layout/Layout';
 import ProductCard from '../../components/Product/ProductCard';
-import { Type } from '../../Utility/action.type.js';
+import { Type } from '../../utility/action.type.js';
 import styles from './Cart.module.css';
 
 function Cart() {
