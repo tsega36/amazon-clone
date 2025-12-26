@@ -139,10 +139,10 @@ function Payment() {
                     disabled={!stripe || processing || total <= 0}
                   >
                     {processing ? (
-                      <div className={styles.loading}>
+                      <>
                         <Loader style={{ width: '20px', height: '20px' }} />
                         <span>Please Wait ..</span>
-                      </div>
+                      </>
                     ) : (
                       'Pay Now'
                     )}
